@@ -6,7 +6,7 @@ Story
 
 The first thing that comes to my mind when I hear "micro-service" is an AWS Lambda.
 
-I worked for a few good years with this wonderful framework called Chalice [https://aws.github.io/chalice/index.html].
+I worked for a few good years with this wonderful framework called Chalice - https://aws.github.io/chalice/index.html.
 This is a python framework. I did a lot of research regarding these cloud frameworks and I think this one is the best.
 Sam (TS framework) is way too heavy, Zappa took me a while to understand and as for Stateless (a JS/TS framework), well,
 from my personal experience kinda sux (sorry for my language).
