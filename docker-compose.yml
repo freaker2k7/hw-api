@@ -1,0 +1,38 @@
+version: '3.8'
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=pass
+    ports:
+      - '5432:5432'
+    volumes:
+      - db:/var/lib/postgresql/data
+      - ./scheme.sql:/docker-entrypoint-initdb.d/create_tables.sql
+    # networks:
+    #   - backend
+
+  api:
+    build: .
+    environment:
+      # - POSTGRES_HOST=backend
+      - POSTGRES_HOST=10.0.0.2
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=pass
+      - POSTGRES_DB=postgres
+    ports:
+      - '3000:3000'
+    # networks:
+    #   - backend
+    depends_on:
+      - db
+
+volumes:
+  db:
+    driver: local
+
+# networks:
+#   backend:
+#     driver: custom-driver-1
